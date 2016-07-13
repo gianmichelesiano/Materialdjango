@@ -1,0 +1,27 @@
+{% extends "base_login.html" %}
+{% load material_form %}
+{% load i18n %}
+
+{% block content %}
+<div class="mdl-grid mdl-cell mdl-cell--4-offset">
+        <form role="form" method="POST">
+            <div class="card form-card">
+                <div class="card-content">
+                    <div class="card-title black-text">Login</div>
+                    {% csrf_token %}
+                    {% form form=form %}{% endform %}
+                </div>
+                <div class="card-action row">
+                    <div class="col s12 right-align"> 
+                        <button class="btn waves-effect waves-light Cyan" background-color: #FFFFC0 type="submit">Login</button>
+                        <input type="hidden" name="next" value="{{ next }}" />
+                    </div>
+           
+                        <p>{% trans "Password dimenticata" %}? <a href="{% url 'auth_password_reset' %}">{% trans "Reset" %}</a></p>
+						<p>{% trans "Non registrato?" %}? <a href="{% url 'registration_register' %}">{% trans "Registrati" %}</a></p>
+                </div>
+                       
+            </div>
+        </form>
+</div>     
+{% endblock %}

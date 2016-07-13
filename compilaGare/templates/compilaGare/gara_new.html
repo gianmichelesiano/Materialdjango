@@ -1,0 +1,25 @@
+{% extends 'compilaGare/base.html' %}
+{% load material_form %}
+
+{% block content %}
+<div class="row">
+    <div class="col s12">
+        <form role="form" method="POST">
+            <div class="card form-card">
+                <div class="card-content">
+                    <div class="card-title black-text">Nuova Gara</div>
+                    {% csrf_token %}
+                    {% form form=form %}{% endform %}
+                </div>
+                <div class="card-action row">
+                    <div class="col s12 right-align"> 
+                        <button class="btn waves-effect waves-light Cyan" background-color: #FFFFC0 type="submit">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+

@@ -1,0 +1,29 @@
+{% extends 'compilaGare/base.html' %}
+{% load material_form %}
+
+{% block content %}
+		<div class="demo-separator mdl-cell--1-col"></div>
+		<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+		  <thead >
+		    <tr>
+			  <th>Tipo</th>
+			  <th>Procedura</th>
+			  <th>Soglia</th>       
+		    </tr>
+		  </thead>
+		  <tbody>
+		  {% for gara in gare %}
+		    <tr>
+		      <td>{{gara.get_tipo_display}}</td>
+		      <td>{{gara.get_procedura_display}}</td>
+		      <td>{{gara.get_soglia_display}}</td> 
+		      <td><a class="" href="{% url 'gara_edit' pk=gara.pk %}">Modifica</a></td>
+		    </tr>
+		   {% endfor %}
+		  </tbody>
+		</table>
+
+{% endblock %}
+
+
+
