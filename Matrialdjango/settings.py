@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'compilaGare',
+    'blog',
+    'ckeditor',
 ]
 
 ACCOUNT_ACTIVATION_DAYS = 7
@@ -135,7 +137,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # @UndefinedVariable
+STATIC_ROOT = os.path.join(BASE_DIR, 'static') 
+
+
+MEDIA_URL = '/media/'
+CKEDITOR_UPLOAD_PATH = "uploads/"
+
+CKEDITOR_CONFIGS = { 
+    'default': { 
+        'toolbar': None, 
+    },
+} # @UndefinedVariable
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -146,3 +158,5 @@ EMAIL_HOST_USER = 'gianmichele.siano@gmail.com'
 EMAIL_HOST_PASSWORD = 'accicredi75'
 SERVER_EMAIL = 'gianmichele.siano@gmail.com'
 DEFAULT_FROM_EMAIL = 'gianmichele' 
+
+
